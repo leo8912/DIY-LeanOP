@@ -39,7 +39,7 @@ on:
 env: 
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
   SCKEY: ${{ secrets.SCKEY }}
-  GITHUB_RELEASE: https://github.com/281677160/Actions-OpenWrt/releases
+  GITHUB_RELEASE: https://github.com/leo8912/DIY-LienolOP/releases
   TZ: Asia/Shanghai
 
 jobs: 
@@ -51,7 +51,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [Project_x86_64]  #[Lede_x86_64,Lede_redmi_ac2100,Lede_newifi_d2,Lede_phicomm_k2p,Lienol_x86_64,Lienol_phicomm_k2p,Lienol_phicomm_k3,Project_x86_64,Project_newifi_d2,Project_phicomm_k3]
+        target: [Lienol]
 
     steps:
     - name: 准备结束
@@ -158,6 +158,21 @@ jobs:
         echo "date1=$(date "+%Y年%m月%d号-%H点%M分")" >> $GITHUB_ENV
         echo "date2=$(date "+%Y%m%d-%H%M")" >> $GITHUB_ENV
 
+    - name: 整理固件文件夹(我设置了默认删除feeds.buildinfo跟version.buildinfo和sha256sums三个文件)
+      id: organizer
+      run: |
+        cd openwrt/bin/targets/*/*
+        rm -rf packages && mkdir packages
+        find -name "*feeds.buildinfo*" | xargs -i mv -f {} packages
+        find -name "*sha256sums*" | xargs -i mv -f {} packages
+        find -name "*version.buildinfo*" | xargs -i mv -f {} packages
+        find -name "*openwrt-x86-64-vmlinuz*" | xargs -i mv -f {} packages
+        find -name "*openwrt-x86-64-rootfs-squashfs.img.gz*" | xargs -i mv -f {} packages
+        find -name "*openwrt-x86-64-generic.manifest*" | xargs -i mv -f {} packages
+        rm -rf packages
+        echo "::set-env name=FIRMWARE::$PWD"
+        echo "::set-output name=status::success"
+    
     - name: 上传bin文件夹(固件+ipk)在github空间
       uses: actions/upload-artifact@v2
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
