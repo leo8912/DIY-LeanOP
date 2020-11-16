@@ -194,15 +194,16 @@ jobs:
         name: OpenWrt_firmware_${{matrix.target}}_${{ env.date }}
         path: ${{ env.FIRMWARE }}
 
-    - name: 删除旧Artifacts
-      uses: c-hive/gha-remove-artifacts@v1.2.0
+    - name: 删除上传在github空间的老固件
+      uses: c-hive/gha-remove-artifacts@v1
+      if: steps.organizer.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true'
       with:
         age: '1 day'
         skip-recent: 3
 
-    - name: 删除旧Releases
+    - name: 删除自动发布的老固件
       uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: steps.organizer.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true'
       with:
         keep_latest: 3
         delete_tags: true
