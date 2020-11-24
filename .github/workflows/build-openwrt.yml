@@ -96,7 +96,7 @@ jobs:
       if: env.SERVERCHAN_SCKEY == 'true'
       with:
         SCKEY: ${{ secrets.SCKEY }}
-        text: 开始编译${{matrix.target}}啦
+        text: 主人${{matrix.target}}编译开始啦
         desp: [${{ env.WXFB_MESSAGE }}]固件正在努力耕耘中......
     
     - name: 开始安装编译所需系统
