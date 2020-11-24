@@ -56,8 +56,8 @@ jobs:
     steps:
     - name: 准备结束
       uses: actions/checkout@v2
- 
-     - name: 删除在github空间的老固件
+
+    - name: 删除在github空间的老固件
       uses: ActionsRML/delete-workflow-runs@v2-dev
       with:
         token: ${{ github.token }}
