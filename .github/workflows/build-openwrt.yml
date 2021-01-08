@@ -58,12 +58,13 @@ jobs:
       uses: actions/checkout@v2
 
     - name: 删除在github空间的老固件
-      uses: ActionsRML/delete-workflow-runs@v2-dev
+      uses: Mattraks/delete-workflow-runs@main
+      if: (github.event.inputs.delete-older-workflow == 'true' && github.event.inputs.delete-older-workflow  != 'false')
       with:
         token: ${{ github.token }}
-        repository: ${{ github.repository }}
-        retain_days: 1
-        keep_minimum_runs: 6    #保留多少个固件不删除
+        repository: ${{ github.repository }}       
+        retain_days: 0.5
+        keep_minimum_runs: 0
     
     - name: 删除自动发布的老固件
       uses: dev-drprasad/delete-older-releases@v0.1.0
