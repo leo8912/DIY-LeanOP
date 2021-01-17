@@ -179,11 +179,6 @@ jobs:
     - name: 整理固件文件夹
       id: organizer
       run: |
-        mkdir config
-        find openwrt/bin/targets/ -name "*config.buildinfo*" | xargs -i mv -f {} config
-        if [ -n "$(ls -A "openwrt/bin/targets/x86" 2>/dev/null)" ]; then
-         find openwrt/bin/targets/x86/* -name "*kernel*" | xargs -i mv -f {} openwrt/bin/targets
-        fi
         cd openwrt/bin/targets/*/*
         rm -rf packages && mkdir packages
         find -name "*feeds.buildinfo*" | xargs -i mv -f {} packages
