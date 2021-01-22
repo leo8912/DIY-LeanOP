@@ -13,4 +13,6 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-git clone https://github.com/281677160/openwrt-package package/danshui
+git clone https://github.com/firker/luci-app-wrtbwmon-zh.git package/diy/luci-app-wrtbwmon-zh
+git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app-serverchan
+git clone https://github.com/garypang13/luci-app-eqos.git package/diy/luci-app-eqos
