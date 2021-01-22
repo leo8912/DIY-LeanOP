@@ -16,3 +16,5 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 git clone https://github.com/firker/luci-app-wrtbwmon-zh.git package/diy/luci-app-wrtbwmon-zh
 git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app-serverchan
 git clone https://github.com/garypang13/luci-app-eqos.git package/diy/luci-app-eqos
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/diy/luci-app-adguardhome
+git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
