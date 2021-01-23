@@ -4,7 +4,7 @@
 
 #添加自定义源
 sed -i '$a src-git mypackages https://github.com/siropboy/mypackages' feeds.conf.default
-git clone -b master https://github.com/281677160/openwrt-package package/danshui
+#git clone -b master https://github.com/281677160/openwrt-package package/danshui
 
 #移除不用软件包
 #rm -rf xxx/xxx/xxx/文件名
