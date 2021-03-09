@@ -16,3 +16,4 @@ sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_gener
 git clone https://github.com/281677160/openwrt-package package/danshui
 git clone https://github.com/jerrykuku/luci-app-ttnode package/luci-app-ttnode
 git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos
+git clone https://github.com/godros/luci-app-godproxy package/luci-app-godproxy
