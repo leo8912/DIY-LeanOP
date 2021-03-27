@@ -17,4 +17,4 @@ git clone https://github.com/281677160/openwrt-package package/danshui
 git clone https://github.com/jerrykuku/luci-app-ttnode package/luci-app-ttnode
 git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/godros/luci-app-godproxy package/luci-app-godproxy
-#git clone https://github.com/linkease/linkease-openwrt/trunk/luci-app-linkease package/luci-app-linkease
+git clone https://github.com/linkease/luci-app-linkease package/luci-app-linkease
