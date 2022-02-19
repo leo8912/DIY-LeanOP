@@ -14,11 +14,10 @@
 sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_generate
 
 
-git clone https://github.com/jerrykuku/luci-app-ttnode package/luci-app-ttnode
-git clone https://github.com/garypang13/luci-app-eqos package/luci-app-eqos
+
 rm -rf ./package/lean/luci-theme-argon && git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 #git clone https://github.com/vernesong/OpenClash/raw/master/luci-app-openclash package/luci-app-openclash
-git clone -b master https://github.com/vernesong/OpenClash.git package/diy/luci-app-openclash
+git clone -b master https://github.com/vernesong/OpenClash.git package/luci-app-openclash
