@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: adbyby
+name: x
 
 on:
   repository_dispatch:
